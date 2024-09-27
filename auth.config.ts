@@ -18,7 +18,7 @@ export default {
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
     Credentials({
-      async authorize(credentials: any) {
+      async authorize(credentials: any): Promise<any> {
         const validatedFields = LoginSchema.safeParse(credentials);
         if (!validatedFields.success) {
           return null;
